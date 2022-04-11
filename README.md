@@ -1,6 +1,8 @@
 # chatui
 
-`chatui` is a simple chat-like user interface that can be used to create chat-like user interfaces. You communicate with the UI via two channels: the `OutputCh` which is used to display output in the
+`chatui` is a simple chat-like user interface for typical command/response type CLI applications. 
+
+You communicate with the UI via two channels: the `OutputCh` which is used to display output in the
 main display area and `CommandCh` which is used to receive commands entered by the user in the input area of the UI.
 
 ## Sample usage
