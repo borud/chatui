@@ -5,6 +5,8 @@
 You communicate with the UI via two channels: the `OutputCh` which is used to display output in the
 main display area and `CommandCh` which is used to receive commands entered by the user in the input area of the UI.
 
+![screenshot](screen.png)
+
 ## Sample usage
 
 ```go
@@ -32,7 +34,7 @@ func main() {
    
     go func() {
         for {
-            outputCh <- "hey there"
+            outputCh <- "hey there, the time is now " + time.Now().Format("15:04:05.00")
             time.Sleep(time.Second)
         }
     }()

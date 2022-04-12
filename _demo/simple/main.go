@@ -22,7 +22,7 @@ func main() {
 
 	go func() {
 		for {
-			outputCh <- "hey there"
+			outputCh <- "hey there, the time is now " + time.Now().Format("15:04:05.00")
 			time.Sleep(time.Second)
 		}
 	}()
