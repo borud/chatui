@@ -1,3 +1,4 @@
+// Package chatui provides a very simple chat like interface for applications.
 package chatui
 
 import (
