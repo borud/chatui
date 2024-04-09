@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestHistor(t *testing.T) {
@@ -68,9 +69,27 @@ func TestHistor(t *testing.T) {
 	assert.Equal(t, 1, h.index)
 
 	h.Append("two")
-	assert.Equal(t, 4, h.index)
+	assert.Equal(t, 3, h.index)
 
 	h.Append("three")
-	assert.Equal(t, 4, h.index)
+	assert.Equal(t, 3, h.index)
+}
 
+func TestHistoryOverflow(t *testing.T) {
+	h := NewHistory(3)
+	h.Append("foo")
+	h.Append("bar")
+	h.Append("baz")
+	h.Append("gazonk")
+	h.Append("bazonk")
+
+	require.Equal(t, 2, h.index)
+	h.Up()
+	require.Equal(t, 1, h.index)
+	h.Up()
+	require.Equal(t, 0, h.index)
+	h.Up()
+	require.Equal(t, 0, h.index)
+	h.Up()
+	require.Equal(t, 0, h.index)
 }

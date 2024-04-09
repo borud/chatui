@@ -23,13 +23,13 @@ func (h *History) Append(item string) {
 		return
 	}
 
-	h.history = append(h.history, item)
-
-	h.index = len(h.history) - 1
-
-	if len(h.history) > h.maxSize {
+	// if history has reached max size, we lop off the front of the history
+	if len(h.history) == h.maxSize {
 		h.history = h.history[1:]
 	}
+
+	h.history = append(h.history, item)
+	h.index = len(h.history) - 1
 }
 
 // Up represents going up the history, returning what's there
