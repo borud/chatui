@@ -154,6 +154,7 @@ func (t *ChatUI) Run() error {
 			t.app.QueueUpdateDraw(func() {
 				fmt.Fprintf(t.output, "\n%s", s)
 			})
+			t.output.ScrollToEnd()
 		}
 	}()
 
